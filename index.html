@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 50px;
+        }
+        #calculator {
+            display: inline-block;
+            background: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input {
+            width: 160px;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: right;
+            font-size: 18px;
+        }
+        button {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simple Calculator</h1>
+
+    <div id="calculator">
+        <!-- Display -->
+        <input type="text" id="display" readonly>
+
+        <br>
+
+        <!-- Buttons -->
+        <button onclick="appendNumber('7')">7</button>
+        <button onclick="appendNumber('8')">8</button>
+        <button onclick="appendNumber('9')">9</button>
+        <button onclick="appendOperator('/')">/</button>
+        <br>
+        <button onclick="appendNumber('4')">4</button>
+        <button onclick="appendNumber('5')">5</button>
+        <button onclick="appendNumber('6')">6</button>
+        <button onclick="appendOperator('*')">*</button>
+        <br>
+        <button onclick="appendNumber('1')">1</button>
+        <button onclick="appendNumber('2')">2</button>
+        <button onclick="appendNumber('3')">3</button>
+        <button onclick="appendOperator('-')">-</button>
+        <br>
+        <button onclick="appendNumber('0')">0</button>
+        <button onclick="appendNumber('.')">.</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="appendOperator('+')">+</button>
+        <br>
+        <button onclick="clearDisplay()">C</button>
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+
+        function appendNumber(num) {
+            display.value += num;
+        }
+
+        function appendOperator(op) {
+            display.value += op;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function calculate() {
+            if(display.value !== '') {
+                display.value = eval(display.value); // calculates the expression
+            }
+        }
+    </script>
+
+</body>
+</html>
